@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lecturenotes}[2015/11/14 A simple class for lecture notes]
+\ProvidesClass{myarticle}[2015/12/10 A class to write nice articles.]
 
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{article}
