@@ -1,2 +1,5 @@
-common.tex
+*.*
+!*.sty
+!*.cls
+!examples.tex
 
