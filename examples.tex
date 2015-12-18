@@ -1,0 +1,172 @@
+\documentclass[draft]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage{fullpage}
+\usepackage{parskip}
+
+\usepackage{mlbasemath}
+\usepackage{mlalgebra}
+\usepackage{mlalgoritmi}
+\usepackage{mlcombinatoria}
+\usepackage{mlcomplessita}
+\usepackage{mlprobabilita}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+Nel prendere appunti in \LaTeX{} cerco di rispecchiare la semantica di quel che sto scrivendo.
+Per questo preferisco scrivere \verb|\implies| a scrivere \verb|\Rightarrow|.
+
+\section{mlbasemath}
+
+Questo package fornisce alcuni operatori di base.
+Tutti gli altri package dovrebbero includerlo.
+
+\begin{center}
+\begin{tabular}{ | p{7cm} | p{4cm} | p{4cm} | }
+	\hline
+	Descrizione & Comando & Risultato \\
+	\hline
+	minimo comune multiplo, massimo comun divisore & \verb|\mcm(a,b)|, \verb|\mcd(a,b)| & $\mcm(a,b)$, $\mcd(a,b)$ \\ \hline
+	segno & \verb|\sgn(x)| & $\sgn(x)$ \\ \hline
+	identit\`a & \verb|\id| & $\id$ \\ \hline
+	insieme immagine di una funzione & \verb|\image{#1}| & $\image{f}$ \\ \hline
+	insieme delle parti & \verb|\parts{#1}| & $\parts{A}$ \\ \hline
+	valore assoluto e norma & \verb|\abs{#1}|, \verb|\norm{#1}| & $\abs{x}$, $\norm{x}$ \\ \hline
+	intero inferiore e superiore & \verb|\intinf{#1}|, \verb|\intsup{#1}| & $\intinf{x}$, $\intsup{x}$ \\ \hline
+	operatore ``divide'' & \verb|\divides| & $a \divides b$ \\ \hline
+	operatore binario ``per definizione'' & \verb|\definition| & $n! \definition n (n-1) \dots 1$ \\ \hline
+	intervalli aperti e chiusi & \verb|\ccint{#1}{#2}|, \verb|\coint{#1}{#2}|, \verb|\ocint{#1}{#2}|, \verb|\ooint{#1}{#2}| & $\ccint{-1}{1}$, $\coint{1}{\infty}$, $\ocint{-\infty}{\sqrt{2}}$, $\ooint{\pi}{2\pi}$\\ \hline
+	insiemi numerici & \verb|\naturals|, \verb|\integers|, \verb|\rationals|, \verb|\reals|, \verb|\complexes| & $\naturals$, $\integers$, $\rationals$, $\reals$, $\complexes$ \\ \hline
+	insieme degli interi da 1 a $n$ & \verb|\ints{#1}| & $\ints{n}$ \\ \hline
+	pezzi di codice & \verb|\code{#1}| & \code{int main(void)} \\ \hline
+\end{tabular}
+\end{center}
+
+Il package contiene anche discutibili scelte di stile:
+\begin{itemize}
+	\item I quantificatori sono ridefiniti da $\oldforall x$ a $\forall x$ e da $\oldexists x$ a $\exists x$: mi piaceva che avessero pi\`u spazio intorno.
+	\`E una scelta fatta quando un anno fa, che non mi convince pi\`u molto.
+	\item L'implicazione e la doppia implicazione usano frecce pi\`u corte: $\iff$ e $\implies$.
+\end{itemize}
+
+Ci sono infine diversi teoremi.
+\begin{center}
+\begin{tabular}{| c | c |}
+\hline
+Nome & Descrizione \\
+\hline
+\code{axiom} & assiona \\ \hline
+\code{theorem} & teorema \\ \hline
+\code{lem} & lemma \\ \hline
+\code{prop} & proposizione \\ \hline
+\code{cor} & corollario \\ \hline
+\code{defn} & definizione \\ \hline
+\code{esercizio} & esercizio \\ \hline
+\code{remark} & ``cosa ribadita'' (?) \\ \hline
+\code{oss} & osservazione \\ \hline
+\code{caso} & caso \\ \hline
+\code{fact} & fatto \\ \hline
+\code{claim} & affermazione \\ \hline
+\end{tabular}
+\end{center}
+
+\section{mlalgebra}
+
+Giusto due comandi.
+
+\begin{center}
+\begin{tabular}{ | p{7cm} | p{4cm} | p{4cm} | }
+	\hline
+	Descrizione & Comando & Risultato \\
+	\hline
+	insieme dei sottogruppi & \verb|\subgroupset| & $\subgroupset$ \\ \hline
+	insieme delle soluzioni & \verb|\solutions| & $\solutions$ \\ \hline
+\end{tabular}
+\end{center}
+
+\section{mlalgoritmi}
+
+Fornisce gli ambienti \code{algorithm} e \code{algorithmic}.
+Informazioni qui: \url{https://en.wikibooks.org/wiki/LaTeX/Algorithms#The_algorithm_environment}.
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Require Un certo input
+\Ensure Un certo output
+\State Fai qualcosa
+\State \Return un risultato
+\end{algorithmic}
+\end{algorithm}
+\begin{verbatim}
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Require Un certo input
+\Ensure Un certo output
+\State Fai qualcosa
+\State \Return un risultato
+\end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+
+\section{mlcombinatoria}
+
+Anche qui, poca roba per la combinatoria.
+
+\begin{tabular}{ | p{7cm} | p{4cm} | p{4cm} | }
+	\hline
+	Descrizione & Comando & Risultato \\
+	\hline
+	parit\`a di un elemento & \verb|\parity{#1}| & $\parity{2}$ \\ \hline
+	numero di clique in un grafo & \verb|\clique{#1}| & $\clique{G}$ \\ \hline
+	grado di un nodo (\verb|#2|) in un grafo (opzionale, \verb|#1|) & \verb|\degree[#1]{#2}| & $\degree[G]{x}$ \\ \hline
+\end{tabular}
+
+
+\section{mlcomplessita}
+
+Un po' di cose per automi/complessit\`a/calcolabilit\`a.
+
+\begin{center}
+\begin{tabular}{ | p{7cm} | p{4cm} | p{4cm} | }
+	\hline
+	Descrizione & Comando & Risultato \\
+	\hline
+	insieme dei linguaggi di un modello di calcolo & \verb|\langs{#1}| & $\langs{\code{DFA}}$ \\ \hline
+	linguaggio di una macchina/automa & \verb|\lang{#1}| & $\lang{M}$ \\ \hline
+	\emph{or} nelle grammatiche & \verb|\langor| & $S \to A \langor B$ \\ \hline
+	stella di Kleene & \verb|\kleenestar| & $\{0,1\}^{\kleenestar}$ \\ \hline
+	strinva vuota & \verb|\emptystring| & $\emptystring$ \\ \hline
+	simbolo di fine stack & \verb|\stackend| & $\stackend$ \\ \hline
+	simbolo di relazione ``porta a'' fra configurazioni & \verb|\leadsto| & $\leadsto$ \\ \hline
+	``O grande'' & \verb|\bigo{#1}| & $\bigo{n^2}$ \\ \hline
+	classi di problemi & \verb|\probp|, \verb|\probnp|, \verb|\probnpc|, \verb|\probexp| & $\probp$, $\probnp$, $\probnpc$, $\probexp$ \\ \hline
+	\emph{or} e \emph{and} grandi (prefissi) & \verb|\Lor|, \verb|\Land| & $\Lor$, $\Land$ \\ \hline
+	simbolo di cella vuota & \verb|\emptysymbol| & $\emptysymbol$ \\ \hline
+\end{tabular}
+\end{center}
+
+\section{mlprobabilita}
+
+Un po' di cose per probabilit\`a.
+
+\begin{center}
+\begin{tabular}{ | p{7cm} | p{4cm} | p{4cm} | }
+	\hline
+	Descrizione & Comando & Risultato \\
+	\hline
+	varianza & \verb|\var| & $\var$ \\ \hline
+	probabilit\`a (il parametro opzionale cambia il nome della funzione di probabilit\`a) & \verb|\prob[#1]{#2}| & $\prob{E}$ \\ \hline
+	probabilit\`a di \verb|#2| condizionata \verb|#3| (il parametro opzionale cambia il nome della funzione di probabilit\`a) & \verb|\probcond[#1]{#2}{#3}| & $\probcond{E}{F}$ \\ \hline
+	valore atteso di una variabile aleatoria & \verb|\expect{#1}| & $\expect{X}$ \\ \hline
+	?? (il parametro opzionale cambia il nome della variabile aleatoria) & \verb|\mass[#1]{#2}| & $\mass{E}$ \\ \hline
+	distribuzione (il parametro opzionale cambia il nome della variabile aleatoria) & \verb|\distr[#1]{#2}| & $\distr{E}$ \\ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
+
